@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AFPCapital.Movil.Controls.ButtonBorder">
+  <ContentView.Content>
+          <Frame x:Name="frameBorder" Padding="1" BackgroundColor="{Binding BorderColor}" HasShadow="False">
+        <Frame x:Name="frameContent" Padding="5" BackgroundColor="#55330000" HasShadow="False">
+            <Label x:Name="label" Text="{Binding Text}" 
+             VerticalOptions="FillAndExpand" 
+             HorizontalOptions="FillAndExpand" 
+             HorizontalTextAlignment="Center" 
+             VerticalTextAlignment="Center" 
+             FontSize="{Binding Font}"
+             TextColor="{Binding TextColor}"/>
+        </Frame>
+    </Frame>
+  </ContentView.Content>
+</ContentView>

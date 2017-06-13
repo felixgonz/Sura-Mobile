@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:converters="clr-namespace:AFPCapital.Movil.Converters"
+             x:Class="AFPCapital.Movil.Views.CertificadosView"
+             Title="Certificado">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BooleanInverter x:Key="BooleanInverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            
+            <StackLayout Padding="20">
+
+                <Label Text="Cotizaciones Obligatorias" Font="Large"></Label>
+                <Label Text="Descarga en formato PDF su certificado de cotizaciones obligatorias:"></Label>
+                <Picker x:Name="pickerMeses"
+                    IsEnabled="{Binding IsBusy,Converter={StaticResource BooleanInverter}}">
+                    <Picker.Items>
+                        <x:String>6 meses</x:String>
+                        <x:String>12 meses</x:String>
+                        <x:String>24 meses</x:String>
+                        <x:String>36 meses</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <ActivityIndicator x:Name="activityIndicator" 
+					                IsRunning="{Binding IsBusy}" 
+                                    IsVisible="{Binding IsBusy}"
+					                HorizontalOptions="CenterAndExpand">
+                </ActivityIndicator>
+                
+                <Button x:Name="buttonDescargar" 
+                        Text="Descargar Certificado" 
+                        IsEnabled="{Binding IsBusy,Converter={StaticResource BooleanInverter}}"
+						VerticalOptions="Center" 
+						HorizontalOptions="FillAndExpand" />
+                <Label Text="Se almacena en la carpeta 'Documentos' de su dispositivo."></Label>
+            </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

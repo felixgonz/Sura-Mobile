@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:AFPCapital.Movil.Controls"
+			 xmlns:converters="clr-namespace:AFPCapital.Movil.Converters"
+             x:Class="AFPCapital.Movil.Views.LoginView"
+             BackgroundColor="{StaticResource BackgroundColorDark}"
+             Title="AFPCapital">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BooleanInverter x:Key="BooleanInverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="40">
+
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Frame BackgroundColor="#fff" Padding="20,20,20,20" HasShadow="False">
+                        <StackLayout>
+
+                            <StackLayout Padding="0,20,0,20" HorizontalOptions="Center">
+                                <Image Source="logo.jpg"/>
+                            </StackLayout>
+
+                            <Frame Padding="20,0,20,0" HasShadow="False">
+                                <Frame.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource BackgroundColorLigth}" Android="#EEEEEE" WinPhone="#fff"/>
+                                </Frame.BackgroundColor>
+                                <Entry x:Name="entryUser" 
+						            Placeholder="99999999k" 
+                                    IsEnabled="{Binding IsBusy,Converter={StaticResource BooleanInverter}}"
+						            TextColor="{StaticResource TextColorDark}" 
+						            PlaceholderColor="{StaticResource PlaceholderColorDark}" 
+						            Keyboard="Text"/>
+                            </Frame>
+
+                            <Frame Padding="20,0,20,0" HasShadow="False">
+                                <Frame.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource BackgroundColorLigth}" Android="#EEEEEE" WinPhone="#fff"/>
+                                </Frame.BackgroundColor>
+                                <Entry x:Name="entryPassword" 
+						            Placeholder="Clave" 
+                                    IsEnabled="{Binding IsBusy,Converter={StaticResource BooleanInverter}}"
+						            TextColor="{StaticResource TextColorDark}" 
+						            PlaceholderColor="{StaticResource PlaceholderColorDark}" 
+						            IsPassword="True"/>
+                            </Frame>
+
+                            <StackLayout Padding="0,20,0,10">
+
+                                <ActivityIndicator x:Name="activityIndicator" 
+					                IsRunning="{Binding IsBusy}" 
+                                    IsVisible="{Binding IsBusy}"
+					                HorizontalOptions="CenterAndExpand">
+                                </ActivityIndicator>
+                                
+                                <Button x:Name="buttonLogin" 
+                                        Text="Entrar" 
+                                        IsEnabled="{Binding IsBusy,Converter={StaticResource BooleanInverter}}"
+									    VerticalOptions="Center" 
+									    HorizontalOptions="FillAndExpand" />
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+
+                    <controls:ButtonBorder x:Name="buttonBorderOlvidoClave" Text="¿Olvidó su clave?" TextColor="{StaticResource TextColorLigth}" Background="{StaticResource BackgroundColorDark}" BorderColor="{StaticResource TextColorLigth}" Font="Small"/>
+
+                    <controls:ButtonBorder x:Name="buttonBorderTelefonos" Text="Teléfonos de emergencia" TextColor="{StaticResource TextColorLigth}" Background="{StaticResource BackgroundColorDark}" BorderColor="{StaticResource TextColorLigth}" Font="Small"/>
+
+                    <controls:ButtonBorder x:Name="buttonBorderSucursales" Text="Sucursales" TextColor="{StaticResource TextColorLigth}" Background="{StaticResource BackgroundColorDark}" BorderColor="{StaticResource TextColorLigth}" Font="Small"/>
+                    
+                    <Label Text="v0.0.7" HorizontalTextAlignment="Center"></Label>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

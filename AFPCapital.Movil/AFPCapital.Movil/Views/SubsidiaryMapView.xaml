@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="AFPCapital.Movil.Views.SubsidiaryMapView"
+			 BackgroundColor = "{StaticResource BackgroundColorLigth}"
+			 Title="Mapa">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0">
+            <StackLayout Padding="0,0,0,0" BackgroundColor="{StaticResource PlaceholderColorDark}">
+                <Grid Padding="15,0,10,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.RowSpacing="0" Grid.ColumnSpacing="0" BackgroundColor = "{StaticResource TextColorLigth}">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0" Grid.Row="0">
+                        <Label x:Name="labelName" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="{StaticResource TextColorDark}">
+                            <Label.Font>
+                                <OnPlatform x:TypeArguments="Font" iOS="Small" Android="Medium" WinPhone="Small"/>
+                            </Label.Font>
+                        </Label>
+                    </StackLayout>
+                    <StackLayout Grid.Column="0" Grid.Row="1">
+                        <Label x:Name="labelAddress" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{StaticResource TextColorDark}">
+                            <Label.Font>
+                                <OnPlatform x:TypeArguments="Font" iOS="Medium" Android="Large" WinPhone="Medium"/>
+                            </Label.Font>
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+                        <Label x:Name="labelDistanceDisplay" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{StaticResource TextColorDark}">
+                            <Label.Font>
+                                <OnPlatform x:TypeArguments="Font" iOS="Small" Android="Medium" WinPhone="Small"/>
+                            </Label.Font>
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
+                        <Image x:Name="imagePhone" Source="phone.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" />
+                    </StackLayout>
+
+                </Grid>
+            </StackLayout>
+
+            <maps:Map x:Name="map"
+					VerticalOptions="FillAndExpand" 
+					HorizontalOptions="FillAndExpand"
+	            	IsShowingUser="true"
+	            />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

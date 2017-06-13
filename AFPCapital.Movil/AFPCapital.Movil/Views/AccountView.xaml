@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AFPCapital.Movil.Views.AccountView"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             BackgroundColor = "{StaticResource BackgroundColorLigth}"
+             Title="Cuenta">
+    <ContentPage.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource" iOS="config.png"></OnPlatform>
+    </ContentPage.Icon>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="0,20,0,20">
+                <ListView x:Name="listViewAccount" ItemsSource="{Binding Account}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" RowHeight="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5" BackgroundColor="{StaticResource TextColorLigth}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="25" />
+                                        <RowDefinition Height="25" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="16"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <ic:CircleImage Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="profile.png" Aspect="AspectFill"/>
+                                    <Label Grid.Column="1" Grid.Row="0" TextColor="{StaticResource TextColorDark}" Text="{Binding FullName}" FontAttributes="Bold" LineBreakMode="TailTruncation">
+                                        <Label.Font>
+                                            <OnPlatform x:TypeArguments="Font" Android="Large" iOS="Large" WinPhone="25"/>
+                                        </Label.Font>
+                                    </Label>
+                                    <Label Grid.Column="1" Grid.Row="1" TextColor="{StaticResource TextColorDark}" Text="{Binding Email}" LineBreakMode="TailTruncation">
+                                        <Label.Font>
+                                            <OnPlatform x:TypeArguments="Font" WinPhone="20"/>
+                                        </Label.Font>
+                                    </Label>
+                                    <Label Grid.Column="1" Grid.Row="2" TextColor="{StaticResource TextColorDark}" Text="{Binding PhoneNumber}" LineBreakMode="TailTruncation">
+                                        <Label.Font>
+                                            <OnPlatform x:TypeArguments="Font" WinPhone="20"/>
+                                        </Label.Font>
+                                    </Label>
+                                    <Image Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Source="next2.png" Aspect="AspectFit"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <StackLayout Padding="0,20,0,0">
+                </StackLayout>
+
+                <ListView x:Name="listViewActions" ItemsSource="{Binding Actions}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" RowHeight="55">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5" BackgroundColor="White">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="16"></ColumnDefinition>
+                                        <ColumnDefinition Width="16"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="0" Grid.Row="0" Source="{Binding Image}" Aspect="AspectFit" WidthRequest="25" HeightRequest="25" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    <Label Grid.Column="1" Grid.Row="0" TextColor="{StaticResource TextColorDark}" Text="{Binding Display}" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontAttributes="Bold">
+                                        <Label.Font>
+                                            <OnPlatform x:TypeArguments="Font" WinPhone="20"/>
+                                        </Label.Font>
+                                    </Label>
+                                    <Label Grid.Column="2" Grid.Row="0" IsVisible="False" TextColor="{StaticResource TextColorDark}" Text="{Binding Count}" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontAttributes="Bold">
+                                        <Label.Font>
+                                            <OnPlatform x:TypeArguments="Font" WinPhone="20"/>
+                                        </Label.Font>
+                                    </Label>
+                                    <Image Grid.Column="3" Grid.Row="0" Source="next2.png" Aspect="AspectFit"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

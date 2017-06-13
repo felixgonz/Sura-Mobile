@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AFPCapital.Movil.Views.EmergencyNumbersView"
+             BackgroundColor = "{StaticResource BackgroundColorLigth}"
+             Title="Teléfonos">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ListView x:Name="listviewPhoneNumbers" RowHeight="61">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="{StaticResource PlaceholderColorLight}">
+                            <StackLayout.Padding>
+                                <OnPlatform x:TypeArguments="Thickness" iOS="0,0,0,0" Android="0,0,0,1" WinPhone="0,0,0,1"/>
+                            </StackLayout.Padding>
+                            <Grid Padding="15,0,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.RowSpacing="0" Grid.ColumnSpacing="0" BackgroundColor = "{StaticResource TextColorLigth}">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Column="0" Grid.Row="0">
+                                    <Label Text="{Binding Description}" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{StaticResource TextColorDark}">
+                                        <Label.Font>
+                                            <OnPlatform x:TypeArguments="Font" iOS="Medium" Android="Large" WinPhone="Medium"/>
+                                        </Label.Font>
+                                    </Label>
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="0" Grid.Row="1">
+                                    <Label Text="{Binding PhoneNumber}" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="{StaticResource TextColorDark}">
+                                        <Label.Font>
+                                            <OnPlatform x:TypeArguments="Font" iOS="Small" Android="Medium" WinPhone="Small"/>
+                                        </Label.Font>
+                                    </Label>
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+                                    <Image Source="phone2.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" />
+                                </StackLayout>
+
+                            </Grid>
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
